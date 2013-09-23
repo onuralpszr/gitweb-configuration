@@ -33,7 +33,7 @@ if [[ $EUID -ne 0 ]]; then
    	 echo "************************************************************"
    	 echo "Git Service file creating and enable on boot"
    	 echo "You can cancel by using systemctl disable git.service command as a root"
-   	 	cp -r git.service /lib/systemd/system/
+   	 	cp -r .service/git.service /lib/systemd/system/
    	 	systemctl enable git.service
    	 	syscemctl start git.service
    	 	sleep 5
@@ -41,13 +41,13 @@ if [[ $EUID -ne 0 ]]; then
    	 echo "Git-web apache config copying to /etc/httpd/conf.d/ "
    	 echo "Also initial config file gonna back-up and file extension will be .bak"
    	 	cp -r /etc/httpd/conf.d/git.conf /etc/httpd/conf.d/git.conf.bak
-   	 	cp -r git.conf /etc/httpd/conf.d
+   	 	cp -r ./configuration/git.conf /etc/httpd/conf.d
    	 	sleep 5
    	 echo "************************************************************"
    	 echo "Git-web server config file copying to /etc/"
    	 echo "Also initial config file gonna back-up and file extension will be .bak"
    	 	cp -r /etc/gitweb.conf /etc/gitweb.conf.bak
-   	 	cp -r gitweb.conf /etc/gitweb.conf
+   	 	cp -r ./configuration/gitweb.conf /etc/gitweb.conf
    	 	sleep 5
    	 echo "************************************************************"
    	 echo "Httpd server gonna start and enable for all start."
