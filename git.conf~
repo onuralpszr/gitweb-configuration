@@ -1,0 +1,25 @@
+Alias /git /var/www/git
+RewriteEngine On
+RewriteRule ^git$ git/ [R]
+
+#<Directory /var/www/git>
+#  Options +ExecCGI
+#  AddHandler cgi-script .cgi
+#  DirectoryIndex gitweb.cgi
+#</Directory>
+
+<Directory /var/www/git>
+       AllowOverride None
+       Options +ExecCGI +Indexes +FollowSymLinks
+       Order allow,deny
+       Allow from all
+       DirectoryIndex gitweb.cgi
+       SetEnv GITWEB_CONFIG "/etc/gitweb.conf"
+       AddHandler cgi-script .cgi
+       RewriteEngine On
+       RewriteBase /git/
+       RewriteRule ^$ gitweb.cgi  [L]
+       RewriteCond %{REQUEST_FILENAME} !-f
+       RewriteCond %{REQUEST_FILENAME} !-d
+       RewriteRule (.*) gitweb.cgi/$1  [QSA,L]
+</Directory>

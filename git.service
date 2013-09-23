@@ -1,0 +1,10 @@
+[Unit]
+Description=Git-Web Service
+After=syslog.target
+
+[Service]
+Type=simple
+ExecStart=/etc/init.d/git
+
+[Install]
+WantedBy=multi-user.target
