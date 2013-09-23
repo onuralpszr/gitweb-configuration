@@ -1,0 +1,8 @@
+#TODO LIST
+	* Git Main repo file
+	* Git-web server user confguration
+	* Git Repo Automatic control for "most updated repo"
+	* Git-web SELinux problem need to be fix
+	* Git-web SELinux permissions settings and command needed
+	* Git-web SELinux user permissions settings and command
+	* Git-web Firewalld permissions settings and command needed
